@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="style.css">
+  <title>Marvin Diagnose AI</title>
+  <style>
+    #main {
+      display: block;
+    }
+
+    #loading {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #diagnosis {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-wrap: wrap;
+      text-align: center;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main">
+    <div class="navbar bg-primary text-primary-content">
+      <button class="btn btn-ghost text-xl">Diagnose AI</button>
+    </div>
+
+    <div>
+      <div class="flex flex-col align-middle hero">
+        <h2 class="text-2xl">Disease Diagnose AI</h2>
+        <h4 class="text-xl">Don't use the result as Real medical diagnose!</h4>
+      </div>
+
+      <div class="flex flex-row justify-center">
+        <label class="form-control w-full max-w-xs">
+          <div class="label">
+            <span class="label-text">Type in your Name</span>
+          </div>
+          <input id="name" type="text" placeholder="Type your name here" class="input input-bordered w-full max-w-xs" />
+        </label>
+      </div>
+
+      <div class="flex flex-row justify-center">
+        <label class="form-control w-full max-w-xs">
+          <div class="label">
+            <span class="label-text">Type in your Symptons (อาการ)</span>
+          </div>
+          <input id="symptoms" type="text" placeholder="Type symptoms here use space bar in case of various symptoms"
+            class="input input-bordered w-full max-w-xs" />
+        </label>
+      </div>
+
+      <div class="flex flex-row justify-center">
+        <label class="form-control w-full max-w-xs">
+          <div class="label">
+            <span class="label-text">Age?</span>
+          </div>
+          <input id="age" type="number" placeholder="Type in Your age" class="input input-bordered w-full max-w-xs" />
+        </label>
+      </div>
+
+      <div class="flex flex-row justify-center">
+        <label class="form-control w-full max-w-xs">
+          <div class="label">
+            <span class="label-text">How many days have you had symptoms?</span>
+          </div>
+          <input id="day" type="number" placeholder="Type number of day that you have symptoms"
+            class="input input-bordered w-full max-w-xs" />
+        </label>
+      </div>
+
+      <div class="flex flex-row justify-center mt-2">
+        <button id="submit" class="btn btn-primary">Diagnose</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="loading" class="flex flex-col align-middle">
+    <span class="loading loading-dots loading-sm"></span>
+    <h2 class="text-2xl text-white">Computing</h2>
+  </div>
+
+  <div id="diagnosis" class="">
+    <h2 class="text-2xl">Diagnose Result</h2>
+    <p id="diagnose-message">
+      <span id="diagnose-result" class="text-md text-white">
+      </span>
+    </p>
+    <p class="text-error">Don't use the result as Real medical diagnose! If u feel not good go to see doctor</p>
+    <div class="flex flex-row justify-center mt-2">
+      <button id="back" class="btn btn-primary">Back</button>
+    </div>
+  </div>
+
+  <script type="module" src="index.js"></script>
+</body>
+
+</html>
